@@ -60,4 +60,8 @@ public class Match {
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getTotalScore(){
+        return this.awayScore + this.homeScore;
+    }
 }
