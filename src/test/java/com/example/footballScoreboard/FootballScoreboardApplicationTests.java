@@ -20,6 +20,8 @@ class FootballScoreboardApplicationTests {
 		String homeTeam = "Mexico";
 		String awayTeam = "Canada";
 
+		scoreboardMock.startMatch(homeTeam,awayTeam);
+
 		List<Match> matches = scoreboardMock.getMatchesInProgress();
 		Match match = matches.get(0);
 
