@@ -18,12 +18,12 @@ public class ScoreBoardImpl implements ScoreBoard{
     }
 
     @Override
-    public void updateScore(int id, int homeScore, int awayScore) {
+    public void updateScore(String homeTeam, String awayTeam, int homeScore, int awayScore) {
 
     }
 
     @Override
-    public void finishMatch(int id) {
+    public void finishMatch(String homeTeam, String awayTeam) {
 
     }
 
