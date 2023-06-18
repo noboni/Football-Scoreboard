@@ -63,6 +63,21 @@ class FootballScoreboardApplicationTests {
     }
 
     @Test
+    public void testFinishNonExistentMatch() {
+        ScoreBoard scoreBoard = new ScoreBoardImpl();
+
+        // Start a new match
+        scoreBoard.startMatch("Mexico", "Canada");
+
+        // Finish a match that doesn't exist
+        scoreBoard.finishMatch("Spain", "Brazil");
+
+        // Assert that the match is not removed from the scoreboard
+        List<Match> matches = scoreBoard.getMatchesInProgress();
+        assertEquals(1, matches.size());
+    }
+
+    @Test
     void contextLoads() {
     }
 
