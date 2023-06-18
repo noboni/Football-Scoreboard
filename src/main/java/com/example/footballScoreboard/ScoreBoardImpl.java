@@ -49,7 +49,8 @@ public class ScoreBoardImpl implements ScoreBoard {
 
     private Match findMatch(String homeTeam, String awayTeam) {
         for (Match match : matches) {
-            if (match.getHomeTeam().equals(homeTeam) && match.getAwayTeam().equals(awayTeam)) {
+            if (match.getHomeTeam().equalsIgnoreCase(homeTeam)
+                    && match.getAwayTeam().equalsIgnoreCase(awayTeam)) {
                 return match;
             }
         }
