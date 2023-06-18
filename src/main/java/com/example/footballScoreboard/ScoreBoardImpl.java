@@ -6,19 +6,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ScoreBoardImpl implements ScoreBoard{
+public class ScoreBoardImpl implements ScoreBoard {
     private List<Match> matches = new ArrayList<>();
     private int id = 1;
 
-    public  ScoreBoardImpl(){
+    public ScoreBoardImpl() {
         matches = new ArrayList<>();
 
     }
 
     @Override
     public void startMatch(String homeTeam, String awayTeam) {
-        Match match = new Match(id++, homeTeam, awayTeam,0 ,0, System.currentTimeMillis() );
-        matches.add(match);
+        Match match = findMatch(homeTeam, awayTeam);
+        if (match == null) {
+            match = new Match(id++, homeTeam, awayTeam, 0, 0, System.currentTimeMillis());
+            matches.add(match);
+        }
 
     }
 
@@ -33,7 +36,10 @@ public class ScoreBoardImpl implements ScoreBoard{
 
     @Override
     public void finishMatch(String homeTeam, String awayTeam) {
-
+        Match match = findMatch(homeTeam, awayTeam);
+        if (match != null) {
+            matches.remove(match);
+        }
     }
 
     @Override
